@@ -9,7 +9,36 @@
     android:id="@+id/register_fragment">
 
     <TextView
-        android:id="@+id/login_welcome_text"
+        android:id="@+id/register_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Create Account"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="300dp"
+        android:textColor="@color/mReady_text_color"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="18dp"
+        android:background="@color/mReady_textInput_color"
+        android:textAlignment="center"
+        android:padding="20dp"
+        />
+
+
+    <ImageView
+        android:id="@+id/register_back_press"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_nav_up"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"/>
+
+
+    <TextView
+        android:id="@+id/register_welcome_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Enter your details and you are ready to go."
@@ -101,7 +130,7 @@
         android:id="@+id/register_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="CREATE ACCOUNT"
         tools:layout_editor_absoluteX="179dp"
         tools:layout_editor_absoluteY="552dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -118,5 +147,6 @@
         android:insetBottom="0dp"
         android:insetTop="0dp"
         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

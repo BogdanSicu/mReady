@@ -94,11 +94,11 @@
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="115dp"
-            app:backgroundTint="@color/mReady_loginButton_color"
-            app:cornerRadius="10dp"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-            android:insetBottom="0dp"
-            android:insetTop="0dp"
+         app:backgroundTint="@color/mReady_loginButton_color"
+         app:cornerRadius="10dp"
+         style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+         android:insetBottom="0dp"
+         android:insetTop="0dp"
         />
 
     <TextView

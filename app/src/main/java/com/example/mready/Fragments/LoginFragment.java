@@ -30,25 +30,34 @@ public class LoginFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
 
         initComponents(view);
-        addFunctionalities();
+        addFunctions();
 
         return view;
     }
 
     private void initComponents(View view){
         registerText = view.findViewById(R.id.login_register_text);
-        loginButton = view.findViewById(R.id.login_button_login);
         loginUserName = view.findViewById(R.id.login_name);
         loginPassword = view.findViewById(R.id.login_password);
+        loginButton = view.findViewById(R.id.login_button_login);
     }
 
-    private void addFunctionalities(){
+    private void addFunctions(){
 
         registerText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Fragment selectedFragment = new RegisterFragment();
                  Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,
+                        selectedFragment).commit();
+            }
+        });
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment selectedFragment = new FeedFragment();
+                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,
                         selectedFragment).commit();
             }
         });

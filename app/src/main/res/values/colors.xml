@@ -11,4 +11,5 @@
     <color name="mReady_loginButton_color">#5969FF</color>
     <color name="mReady_text_color">#FFFFFF</color>
     <color name="mReady_textInput_color">#292B36</color>
+    <color name="mReady_adapter_username">#EE8A27</color>
 </resources>
