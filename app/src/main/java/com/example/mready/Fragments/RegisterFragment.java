@@ -56,7 +56,7 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Fragment selectedFragment = new LoginFragment();
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,
                         selectedFragment).commit();
             }
         });

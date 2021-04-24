@@ -48,7 +48,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Fragment selectedFragment = new RegisterFragment();
-                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,
+                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,
                         selectedFragment).commit();
             }
         });
@@ -57,7 +57,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Fragment selectedFragment = new FeedFragment();
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,
                         selectedFragment).commit();
             }
         });

@@ -1,6 +1,4 @@
 <resources>
     <string name="app_name">mReady</string>
     <string name="new_here_create_an_account"><u>New here? Create an account</u></string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -64,7 +64,7 @@ public class FeedFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Fragment selectedFragment = new LoginFragment();
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,
                         selectedFragment).commit();
             }
         });
@@ -73,7 +73,7 @@ public class FeedFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Fragment selectedFragment = new NewPostFragment();
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,
                         selectedFragment).commit();
             }
         });
@@ -99,7 +99,7 @@ public class FeedFragment extends Fragment {
                 MyData myData = response.body();
                 ArrayList<GetMessage> lista = new ArrayList<>();
                 lista.addAll(myData.getData());
-                AdapterMessage adapterMessage = new AdapterMessage(Objects.requireNonNull(getContext()).getApplicationContext(), R.layout.adapter_messages, lista, layoutInflater);
+                AdapterMessage adapterMessage = new AdapterMessage(requireContext().getApplicationContext(), R.layout.adapter_messages, lista, layoutInflater);
                 feedList.setAdapter(adapterMessage);
 //                Toast.makeText(getContext(), myData.toString(), Toast.LENGTH_SHORT).show();
             }
