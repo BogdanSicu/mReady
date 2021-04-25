@@ -18,6 +18,7 @@ import com.example.mready.Clase.GetMessage;
 import com.example.mready.Clase.MyData;
 import com.example.mready.Clase.PostData;
 import com.example.mready.Clase.PostMessage;
+import com.example.mready.Clase.UserAndToken;
 import com.example.mready.Http.JsonPlaceHolder;
 import com.example.mready.R;
 
@@ -36,11 +37,17 @@ public class NewPostFragment extends Fragment {
     private ImageView newPostBackPress;
     private EditText newPostText;
     private Button newPostButton;
+    private Bundle bundle;
+    private String token;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_new_post, container, false);
+
+        bundle = this.getArguments();
+        assert bundle != null;
+        token = bundle.getString("token");
 
         initComponents(view);
 
@@ -60,6 +67,8 @@ public class NewPostFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Fragment selectedFragment = new FeedFragment();
+                bundle.putString("token", token);
+                selectedFragment.setArguments(bundle);
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,
                         selectedFragment).commit();
             }
@@ -80,7 +89,7 @@ public class NewPostFragment extends Fragment {
 
                     PostMessage postMessage = new PostMessage(newPostText.getText().toString());
 
-                    Call<PostData> call = jsonPlaceHolder.createMessage(postMessage.getMessage());
+                    Call<PostData> call = jsonPlaceHolder.createMessage(postMessage.getMessage(), "Bearer "+ token );
 
                     Toast.makeText(getContext(), postMessage.toString(), Toast.LENGTH_SHORT).show();
 
@@ -89,9 +98,10 @@ public class NewPostFragment extends Fragment {
                         public void onResponse(Call<PostData> call, Response<PostData> response) {
                             if (!response.isSuccessful()) {
                                 Toast.makeText(getContext(), response.code(), Toast.LENGTH_SHORT).show();
-                                return;
                             }
-                            Toast.makeText(getContext(), response.body().toString(), Toast.LENGTH_SHORT).show();
+                            else{
+                                Toast.makeText(getContext(), "Message sent", Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                         @Override
@@ -99,6 +109,8 @@ public class NewPostFragment extends Fragment {
                             Toast.makeText(getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
                         }
                     });
+                }else{
+                    Toast.makeText(getContext(), "You can't send an empty message", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -70,7 +70,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginBottom="408dp"
         android:textColor="@color/mReady_text_color"
-        android:text="full name"
+        android:hint="full name"
+        android:textColorHint="@color/mReady_text_color"
         android:padding="14dp"
         />
 
@@ -88,7 +89,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginBottom="352dp"
         android:textColor="@color/mReady_text_color"
-        android:text="username"
+        android:hint="username"
+        android:textColorHint="@color/mReady_text_color"
         android:padding="14dp"
         />
     <EditText
@@ -105,8 +107,10 @@
         android:layout_marginStart="24dp"
         android:layout_marginBottom="296dp"
         android:textColor="@color/mReady_text_color"
-        android:text="password"
+        android:hint="password"
+        android:textColorHint="@color/mReady_text_color"
         android:padding="14dp"
+        android:inputType="textPassword"
         />
     <EditText
         android:id="@+id/register_repeat_password"
@@ -122,8 +126,10 @@
         android:layout_marginStart="24dp"
         android:layout_marginBottom="240dp"
         android:textColor="@color/mReady_text_color"
-        android:text="repeat password"
+        android:hint="repeat password"
+        android:textColorHint="@color/mReady_text_color"
         android:padding="14dp"
+        android:inputType="textPassword"
         />
 
     <com.google.android.material.button.MaterialButton
@@ -147,6 +153,7 @@
         android:insetBottom="0dp"
         android:insetTop="0dp"
         />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

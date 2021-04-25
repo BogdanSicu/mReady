@@ -15,8 +15,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.mready.Adapters.AdapterMessage;
+import com.example.mready.Clase.DataUser;
 import com.example.mready.Clase.GetMessage;
 import com.example.mready.Clase.MyData;
+import com.example.mready.Clase.UserAndToken;
 import com.example.mready.Http.JsonPlaceHolder;
 import com.example.mready.MainActivity;
 import com.example.mready.R;
@@ -37,13 +39,19 @@ public class FeedFragment extends Fragment {
     private ListView feedList;
     private Button feedPostButton;
     private LayoutInflater layoutInflater;
-
+    private Bundle bundle;
+    private String token;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_feed, container, false);
         layoutInflater = inflater;
+
+        bundle = this.getArguments();
+        assert bundle != null;
+        token = bundle.getString("token");
+
 
         initComponents(view);
         initMessages();
@@ -63,6 +71,7 @@ public class FeedFragment extends Fragment {
         feedBackPress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Fragment selectedFragment = new LoginFragment();
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,
                         selectedFragment).commit();
@@ -72,7 +81,13 @@ public class FeedFragment extends Fragment {
         feedPostButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Fragment selectedFragment = new NewPostFragment();
+
+                Bundle newBundle = new Bundle();
+                newBundle.putString("token", token);
+                selectedFragment.setArguments(newBundle);
+
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_container,
                         selectedFragment).commit();
             }
